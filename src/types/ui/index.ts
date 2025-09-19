@@ -1,5 +1,3 @@
-import { JSX } from 'react';
-
 type ToastType = 'success' | 'error' | 'warning' | 'info' | 'question';
 export interface ModalProps {
   title: string;
@@ -28,5 +26,5 @@ export interface DivProps {
   className?: string;
   onClick?: () => void;
   children?: React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
 }
