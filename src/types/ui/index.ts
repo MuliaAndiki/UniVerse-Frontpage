@@ -27,4 +27,5 @@ export interface DivProps {
   onClick?: () => void;
   children?: React.ReactNode;
   as?: React.ElementType;
+  onSubmit?: (e: any) => void;
 }

@@ -83,12 +83,17 @@ interface NavigationMenuConfig {
 export const navigationMenuConfig: NavigationMenuConfig = {
   items: [
     {
-      title: 'Home',
+      title: 'Category',
       href: '/',
       description: 'Home',
     },
     {
-      title: 'Kelas',
+      title: 'About',
+      href: '/kelas',
+      description: 'Kelas',
+    },
+    {
+      title: 'Contact',
       href: '/kelas',
       description: 'Kelas',
     },

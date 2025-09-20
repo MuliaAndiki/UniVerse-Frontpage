@@ -14,8 +14,8 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 // import UserDropdown from './user.dropdown';
 import LanguageDropdown from './language.dropdown';
-import NotificationDropdown from './notification.dropdown';
 import ThemeToggle from './theme-toggle';
+import { Button } from '@/components/ui/button';
 
 export default function AppHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,28 +42,28 @@ export default function AppHeader() {
     >
       <div className="flex items-center justify-between max-w-7xl mx-auto">
         <div className="flex items-center gap-4">
-          {/* Company Logo */}
           <Link href="/">
             <Image src="/images/logo.png" alt="Logo" width={40} height={40} />
           </Link>
-
-          <NavigationMenu>
-            <NavigationMenuList>
-              {navigationMenuConfig?.items?.map((item) => (
-                <NavigationMenuItem key={item.title}>
-                  <NavigationMenuLink href={item.href} className={navigationMenuTriggerStyle()}>
-                    {item.title}
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
         </div>
+        <NavigationMenu>
+          <NavigationMenuList>
+            {navigationMenuConfig?.items?.map((item) => (
+              <NavigationMenuItem key={item.title}>
+                <NavigationMenuLink href={item.href} className={navigationMenuTriggerStyle()}>
+                  {item.title}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <LanguageDropdown />
-          <NotificationDropdown />
+          <Link href="/login">
+            <Button variant="glass">Get Started</Button>
+          </Link>
           {/* <UserDropdown /> */}
         </div>
       </div>
