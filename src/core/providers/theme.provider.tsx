@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { themeConfig } from '@/configs/theme.config';
 import React from 'react';
+import { CardConfig } from '@/configs/theme.config';
 
 type Theme = 'light' | 'dark';
 
@@ -23,10 +24,12 @@ function applyThemeConfig(theme: Theme) {
         document.documentElement.style.setProperty(`--${key}`, value.background);
         document.documentElement.style.setProperty(`--${key}-foreground`, value.foreground);
       }
-      if ('parent' in value && 'child' in value && 'tree' in value) {
+      if ('parent' in value && 'child' in value) {
         document.documentElement.style.setProperty(`--${key}-parent`, value.parent);
         document.documentElement.style.setProperty(`--${key}-child`, value.child);
-        document.documentElement.style.setProperty(`--${key}-tree`, value.tree);
+        if ('tree' in value) {
+          document.documentElement.style.setProperty(`--${key}-tree`, (value as CardConfig).tree);
+        }
       }
     }
   });

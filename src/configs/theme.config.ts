@@ -3,12 +3,7 @@ interface ColorConfig {
   foreground: string;
 }
 
-interface ShapeConfig {
-  parent: string;
-  child: string;
-}
-
-interface CardConfig {
+export interface CardConfig {
   parent: string;
   child: string;
   tree: string;
@@ -31,7 +26,7 @@ interface ThemeConfig {
     border: string;
     input: string;
     ring: string;
-    shape: ShapeConfig;
+    shape: CardConfig;
     case: CardConfig;
   };
   dark: {
@@ -50,7 +45,7 @@ interface ThemeConfig {
     border: string;
     input: string;
     ring: string;
-    shape: ShapeConfig;
+    shape: CardConfig;
     case: CardConfig;
   };
 }
@@ -58,7 +53,7 @@ interface ThemeConfig {
 export const themeConfig: ThemeConfig = {
   light: {
     background: '#F8F9EB',
-    foreground: '#911DEC',
+    foreground: '#000000',
     card: {
       background: '#FFFFFF',
       foreground: '#911DEC',
@@ -101,14 +96,15 @@ export const themeConfig: ThemeConfig = {
     },
     shape: {
       parent: '#003D21',
-      child: '',
+      child: '#507968',
+      tree: '',
     },
     case: {
       parent: '#EAD1AC',
       child: '#507968',
       tree: '#FBE87F',
     },
-    border: 'rgba(145, 29, 236, 0.2)',
+    border: 'rgba(0, 0, 0, 0.2)',
     input: 'rgba(145, 29, 236, 0.2)',
     ring: 'rgba(145, 29, 236, 0.3)',
   },
@@ -156,8 +152,9 @@ export const themeConfig: ThemeConfig = {
       foreground: '#04B4FC22',
     },
     shape: {
-      parent: '',
+      parent: '#04B4FC',
       child: '',
+      tree: '',
     },
     case: {
       parent: '',

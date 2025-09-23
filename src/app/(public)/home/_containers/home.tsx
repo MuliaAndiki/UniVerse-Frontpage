@@ -4,6 +4,7 @@ import NavLayout from '@/core/layouts/nav.layout';
 import AboutSection from '@/core/section/public/about-section';
 import CategorySection from '@/core/section/public/category-section';
 import HomeHeroSection from '@/core/section/public/hero-section';
+import PlusSection from '@/core/section/public/plus-section';
 
 export default function ContainerHome() {
   return (
@@ -12,6 +13,7 @@ export default function ContainerHome() {
         <HomeHeroSection />
         <AboutSection />
         <CategorySection />
+        <PlusSection />
       </Container>
     </NavLayout>
   );

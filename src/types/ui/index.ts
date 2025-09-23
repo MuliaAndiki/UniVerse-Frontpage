@@ -29,3 +29,8 @@ export interface DivProps {
   as?: React.ElementType;
   onSubmit?: (e: any) => void;
 }
+
+export interface SpreedProps {
+  orientation?: 'horizontal' | 'vertical';
+  className?: string;
+}
