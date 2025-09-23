@@ -13,7 +13,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 // import UserDropdown from './user.dropdown';
-import LanguageDropdown from './language.dropdown';
+// import LanguageDropdown from './language.dropdown';
 import ThemeToggle from './theme-toggle';
 import { Button } from '@/components/ui/button';
 
@@ -60,7 +60,7 @@ export default function AppHeader() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <LanguageDropdown />
+          {/* <LanguageDropdown /> */}
           <Link href="/login">
             <Button variant="glass">Get Started</Button>
           </Link>

@@ -50,6 +50,9 @@ importers:
       '@t3-oss/env-nextjs':
         specifier: ^0.12.0
         version: 0.12.0(typescript@5.9.2)(zod@3.25.76)
+      '@tabler/icons-react':
+        specifier: ^3.35.0
+        version: 3.35.0(react@18.3.1)
       '@tanstack/react-query':
         specifier: ^5.71.1
         version: 5.89.0(react@18.3.1)
@@ -89,6 +92,9 @@ importers:
       jose:
         specifier: ^6.0.10
         version: 6.1.0
+      lucide:
+        specifier: ^0.544.0
+        version: 0.544.0
       lucide-react:
         specifier: ^0.486.0
         version: 0.486.0(react@18.3.1)
@@ -975,6 +981,14 @@ packages:
         optional: true
       zod:
         optional: true
+
+  '@tabler/icons-react@3.35.0':
+    resolution: {integrity: sha512-XG7t2DYf3DyHT5jxFNp5xyLVbL4hMJYJhiSdHADzAjLRYfL7AnjlRfiHDHeXxkb2N103rEIvTsBRazxXtAUz2g==}
+    peerDependencies:
+      react: '>= 16'
+
+  '@tabler/icons@3.35.0':
+    resolution: {integrity: sha512-yYXe+gJ56xlZFiXwV9zVoe3FWCGuZ/D7/G4ZIlDtGxSx5CGQK110wrnT29gUj52kEZoxqF7oURTk97GQxELOFQ==}
 
   '@tailwindcss/node@4.1.13':
     resolution: {integrity: sha512-eq3ouolC1oEFOAvOMOBAmfCIqZBJuvWvvYWh5h5iOYfe1HFC6+GZ6EIL0JdM3/niGRJmnrOc+8gl9/HGUaaptw==}
@@ -2158,6 +2172,9 @@ packages:
     resolution: {integrity: sha512-xWop/wMsC1ikiEVLZrxXjPKw4vU/eAip33G2mZHgbWnr4Nr5Rt4Vx4s/q1D3B/rQVbxjOuqASkEZcUxDEKzecw==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+
+  lucide@0.544.0:
+    resolution: {integrity: sha512-U5ORwr5z9Sx7bNTDFaW55RbjVdQEnAcT3vws9uz3vRT1G4XXJUDAhRZdxhFoIyHEvjmTkzzlEhjSLYM5n4mb5w==}
 
   magic-string@0.30.19:
     resolution: {integrity: sha512-2N21sPY9Ws53PZvsEpVtNuSW+ScYbQdp4b9qUaL+9QkHUrGFKo56Lg9Emg5s9V/qrtNBmiR01sYhUOwu3H+VOw==}
@@ -3536,6 +3553,13 @@ snapshots:
       typescript: 5.9.2
       zod: 3.25.76
 
+  '@tabler/icons-react@3.35.0(react@18.3.1)':
+    dependencies:
+      '@tabler/icons': 3.35.0
+      react: 18.3.1
+
+  '@tabler/icons@3.35.0': {}
+
   '@tailwindcss/node@4.1.13':
     dependencies:
       '@jridgewell/remapping': 2.3.5
@@ -4896,6 +4920,8 @@ snapshots:
   lucide-react@0.486.0(react@18.3.1):
     dependencies:
       react: 18.3.1
+
+  lucide@0.544.0: {}
 
   magic-string@0.30.19:
     dependencies:
