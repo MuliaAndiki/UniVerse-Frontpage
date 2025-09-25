@@ -6,15 +6,45 @@ import { IconChevronCompactRight } from '@tabler/icons-react';
 import Laptop from '@/components/svg/public/schema-laptop';
 import Phone from '@/components/svg/public/schema-phone';
 import Sline from '@/components/svg/public/schema-sline';
+import { useEffect, useState } from 'react';
 
 const HomeHeroSection = () => {
+  const [isActive, setIsActive] = useState<number | null>(null);
+  const [typing, setTyping] = useState<number>(0);
+  const [display, setDisplay] = useState<string>('');
+
+  const texts = ['Mencari Event ?', 'Jadilah Bagian Dari Universe', 'Temukan Jalanmu'];
+  useEffect(() => {
+    const currentText = texts[typing % texts.length];
+    let i = 0;
+
+    const typingInterval = setInterval(() => {
+      setDisplay(currentText.slice(0, i + 1));
+      i++;
+
+      if (i === currentText.length) {
+        clearInterval(typingInterval);
+      }
+    }, 100);
+
+    const loop = setInterval(() => {
+      setTyping((prev) => prev + 1);
+    }, 4000);
+
+    return () => {
+      clearInterval(loop);
+      clearInterval(typingInterval);
+    };
+  }, [typing]);
+
   return (
     <View>
       <Box className="flex min-h-screen justify-center  items-stretch relative z-0 overflow-hidden ">
-        <Box className="flex justify-start items-center w-full flex-col  max-w-250 tracking-widest gap-6 mt-20 p-2 ">
-          <Label className="text-4xl font-light p-4 border rounded-full text-foreground/50 bg-foreground/10">
-            Mencari Event ?
-          </Label>
+        <Box className="flex justify-start items-center w-full flex-col  max-w-250 tracking-widest gap-2 mt-20 p-2 ">
+          <div className="text-xl font-light p-4 border rounded-full text-foreground/50 bg-foreground/10">
+            {display}
+            <span className="animate-pulse">|</span>
+          </div>
           <Label className="text-8xl text-center font-extrabold text-[#3E1414]">
             Jadilah Bagian Dari Universe
           </Label>
@@ -24,8 +54,16 @@ const HomeHeroSection = () => {
             <IconChevronCompactRight />
           </Button>
 
-          {/* Card 1  */}
-          <Box className="absolute w-85 h-85 bg-[var(--case-parent)] left-0 translate-x-[250px] translate-y-1 -rotate-10 bottom-0 rounded-lg ">
+          <div
+            onMouseEnter={() => setIsActive(1)}
+            onMouseLeave={() => setIsActive(null)}
+            className={`absolute w-85 h-85 overflow-hidden left-0 bottom-0 translate-x-[250px] -rotate-10 rounded-lg ${isActive === 1 ? 'animate-slow-up bg-background border' : 'animate-slow-down '}  `}
+          >
+            <div className="w-full h-full  bg-[var(--case-parent)] absolute inset-0"></div>
+
+            <div
+              className={`absolute inset-0 bg-background rounded-full  ${isActive === 1 ? 'animate-slow-shape-up' : 'animate-slow-shape-down '}`}
+            />
             <Box className="h-full flex justify-center items-center flex-col p-10 relative ">
               <Box className="flex justify-start items-start  h-auto w-full  ">
                 <Label className="font-bold text-5xl">Seminar & Webbinar</Label>
@@ -41,10 +79,20 @@ const HomeHeroSection = () => {
                 <Laptop />
               </Box>
             </Box>
-          </Box>
-          <Box className="absolute w-85 h-85 bg-[var(--case-child)] bottom-0 -translate-y-7 rounded-lg overflow-hidden ">
-            <Box className="h-full flex justify-center items-center flex-col p-10 relative ">
-              <Box className="flex justify-start items-start  h-auto w-full  ">
+          </div>
+
+          <div
+            onMouseEnter={() => setIsActive(2)}
+            onMouseLeave={() => setIsActive(null)}
+            className={`absolute w-85 h-85 bottom-0 rounded-lg overflow-hidden transition-transform duration-100 -translate-y-11 ease-in-out will-change-transform ${isActive === 2 ? 'animate-slow-up bg-background border' : 'animate-slow-down '}`}
+          >
+            <div className="w-full h-full  bg-[var(--case-child)] absolute inset-0"></div>
+
+            <div
+              className={`absolute inset-0 bg-background rounded-full    ${isActive === 2 ? 'animate-slow-shape-up' : 'animate-slow-shape-down '}`}
+            />
+            <Box className="h-full flex justify-center items-center flex-col p-10 relative">
+              <Box className="flex justify-start items-start h-auto w-full">
                 <Label className="font-bold text-4xl">Event Lomba</Label>
               </Box>
               <Label className="text-xs">
@@ -54,10 +102,20 @@ const HomeHeroSection = () => {
                 <Phone />
               </Box>
             </Box>
-          </Box>
-          <Box className="absolute w-85 h-85 bg-[var(--case-tree)] bottom-0 -translate-x-[250px]  translate-y-1 rotate-10 right-0  rounded-lg overflow-hidden  ">
+          </div>
+
+          <div
+            onMouseEnter={() => setIsActive(3)}
+            onMouseLeave={() => setIsActive(null)}
+            className={`absolute w-85 h-85  bottom-0 -translate-x-[250px] rotate-10 right-0 -translate-y-3 rounded-lg overflow-hidden ${isActive === 3 ? 'animate-slow-up bg-background border' : 'animate-slow-down '}`}
+          >
+            <div className="w-full h-full  bg-[var(--case-tree)] absolute inset-0"></div>
+
+            <div
+              className={`absolute inset-0 bg-background rounded-full    ${isActive === 3 ? 'animate-slow-shape-up' : 'animate-slow-shape-down '}`}
+            />
             <Box className="h-full flex justify-center items-center flex-col p-10 relative ">
-              <Box className="flex justify-start items-start  h-auto w-full  ">
+              <Box className="flex justify-start items-start h-auto w-full">
                 <Label className="font-bold text-5xl">Seminar & Webbinar</Label>
               </Box>
               <Label className="text-xs">
@@ -67,7 +125,7 @@ const HomeHeroSection = () => {
                 <Sline />
               </Box>
             </Box>
-          </Box>
+          </div>
           <Box className="absolute w-450 h-100 bg-[var(--shape-parent) bg-[var(--shape-parent)]  bottom-0 translate-y-80 rounded-t-[3000px] "></Box>
         </Box>
       </Box>
