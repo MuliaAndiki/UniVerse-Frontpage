@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { FormRegisterType } from '@/types/form';
 import useRegister from '@/hooks/mutation/auth/useRegister';
 import { useAlert } from '@/hooks/useAlert/costum-alert';
+import Image from 'next/image';
 
 const RegisterContainer = () => {
   const alert = useAlert();
@@ -31,14 +32,22 @@ const RegisterContainer = () => {
   };
   return (
     <Container className="w-full min-h-screen flex flex-col">
-      <View className=" flex min-h-svh flex-col items-center justify-center p-6 md:p-10">
-        <Box className="w-full max-w-sm md:max-w-3xl">
-          <RegisterCard
-            formRegister={formRegister}
-            setFormRegister={setFormRegister}
-            isPending={register.isPending}
-            onRegister={() => handleRegister()}
-          />
+      <View className="grid min-h-svh lg:grid-cols-2 bg-white">
+        <Box className="bg-background relative flex justify-center items-center">
+          <Image alt="mobile" src="/images/mobil.svg" width={500} height={500} />
+        </Box>
+        <Box className="flex flex-col gap-4 p-6 md:p-10">
+          <Box className="flex justify-center gap-2 md:justify-start"></Box>
+          <Box className="flex flex-1 items-center justify-center">
+            <Box className="w-full max-w-xs">
+              <RegisterCard
+                formRegister={formRegister}
+                isPending={register.isPending}
+                onRegister={() => handleRegister()}
+                setFormRegister={setFormRegister}
+              />
+            </Box>
+          </Box>
         </Box>
       </View>
     </Container>

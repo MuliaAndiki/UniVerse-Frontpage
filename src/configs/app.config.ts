@@ -80,8 +80,8 @@ interface NavigationMenuConfig {
 
 export const navigationMenuConfig: NavigationMenuConfig = {
   items: [
-    { title: 'Category', href: '/', description: 'Home' },
-    { title: 'About', href: '/kelas', description: 'Kelas' },
-    { title: 'Contact', href: '/kelas', description: 'Kelas' },
+    { title: 'Kategori', href: '/', description: 'Home' },
+    { title: 'Tentang', href: '/kelas', description: 'Kelas' },
+    { title: 'Kontak', href: '/kelas', description: 'Kelas' },
   ],
 };

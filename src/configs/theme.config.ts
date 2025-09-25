@@ -63,7 +63,7 @@ export const themeConfig: ThemeConfig = {
       foreground: '#911DEC',
     },
     primary: {
-      background: '#911DEC',
+      background: '#507968',
       foreground: '#F5EAFF',
     },
     secondary: {
@@ -72,7 +72,7 @@ export const themeConfig: ThemeConfig = {
     },
     muted: {
       background: '#F5EAFF',
-      foreground: 'rgba(145, 29, 236, 0.6)',
+      foreground: 'rgba(53, 91, 62, 0.5)',
     },
     accent: {
       background: '#F5EAFF',
@@ -104,9 +104,9 @@ export const themeConfig: ThemeConfig = {
       child: '#507968',
       tree: '#FBE87F',
     },
-    border: 'rgba(0, 0, 0, 0.2)',
-    input: 'rgba(145, 29, 236, 0.2)',
-    ring: 'rgba(145, 29, 236, 0.3)',
+    border: 'rgba(53, 91, 62, 0.5)',
+    input: 'rgba(53, 91, 62, 0.5)',
+    ring: 'rgba(53, 91, 62, 0.5)',
   },
   dark: {
     background: '#1A1A1A',

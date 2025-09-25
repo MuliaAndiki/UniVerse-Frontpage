@@ -62,7 +62,7 @@ export default function AppHeader() {
           <ThemeToggle />
           {/* <LanguageDropdown /> */}
           <Link href="/login">
-            <Button variant="glass">Get Started</Button>
+            <Button variant="glass">Mulai</Button>
           </Link>
           {/* <UserDropdown /> */}
         </div>
