@@ -382,3 +382,74 @@ input[type='number'] {
 .animate-slow-shape-down {
   animation: slowShapeDown 0.5s ease-in-out forwards;
 }
+
+@keyframes expandLeft {
+  from {
+    width: 100px;
+    border-radius: 9999px;
+    transform: translateX(0);
+  }
+  to {
+    width: 480px;
+    border-radius: 12px; /* 0.75rem */
+    transform: translateX(-50px);
+  }
+}
+
+@keyframes collapseRight {
+  from {
+    width: 480px;
+    border-radius: 12px;
+    transform: translateX(-50px);
+  }
+  to {
+    width: 100px;
+    border-radius: 9999px;
+    transform: translateX(0);
+  }
+}
+
+/* Tambah durasi sama easing */
+.animate-expand-left {
+  animation: expandLeft 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.animate-collapse-right {
+  animation: collapseRight 0.7s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.shadow-top {
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+/* Shadow kanan */
+.shadow-right {
+  box-shadow: 4px 0 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+/* Shadow bawah */
+.shadow-bottom {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+/* Shadow kiri */
+.shadow-left {
+  box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes translateY-smooth {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.smooth-translateY {
+  animation: translateY-smooth 4s cubic-bezier(0.22, 0.8, 0.38, 1) infinite;
+  will-change: transform;
+}

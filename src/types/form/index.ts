@@ -7,6 +7,7 @@ export interface FormRegisterType {
   email: string;
   password: string;
   fullName: string;
+  phoneNumber: number;
 }
 
 export interface FormVerifyOtp {
