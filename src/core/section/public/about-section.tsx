@@ -24,7 +24,7 @@ const AboutSection = () => {
   const yElement4 = useTransform(scrollYProgress, [0.6, 0.8, 0.9], [-100, 0, 100]);
 
   return (
-    <div ref={ref} className="relative h-[400vh] bg-[var(--shape-parent)]">
+    <div ref={ref} className="relative h-[400vh] bg-[var(--shape-parent)] ">
       <div className="sticky top-0 flex min-h-screen items-center justify-center">
         <div className="relative w-full h-full">
           <div className="absolute inset-0 flex flex-col items-center justify-center text-background">
@@ -36,10 +36,10 @@ const AboutSection = () => {
             style={{ opacity: fadeElement1, y: yElement1 }}
             className="absolute top-50 left-30"
           >
-            <div className="flex items-center relative">
-              <h3 className="text-3xl font-extrabold max-w-[12rem] bg-clip-text bg-gradient-to-r from-[#F8F9EB] to-[#92938B]">
+            <div className="flex items-center relative ">
+              <Label className="text-3xl font-extrabold max-w-[12rem] text-background">
                 Empowering Collaboration
-              </h3>
+              </Label>
               <div className="absolute scale-[0.4] translate-x-[120px] translate-y-7">
                 <Netbox />
               </div>
@@ -55,9 +55,9 @@ const AboutSection = () => {
           >
             <div className="flex items-center gap-4">
               <Image alt="toa" src="/images/toa.png" width={200} height={200} />
-              <h3 className="font-bold text-4xl max-w-[12rem] bg-clip-text bg-gradient-to-r from-[#F8F9EB] to-[#92938B]">
+              <Label className="font-bold text-4xl max-w-[12rem] text-background">
                 Automated Reminders
-              </h3>
+              </Label>
             </div>
           </motion.div>
 
@@ -66,12 +66,12 @@ const AboutSection = () => {
             className="absolute bottom-30 left-15"
           >
             <div className="flex flex-col items-start max-w-[22rem]">
-              <p className="font-light p-2 rounded-full border border-background bg-background/10">
+              <Label className="font-light p-2 rounded-full border text-background border-background bg-background/10">
                 Seamless Experience
-              </p>
-              <h3 className="text-3xl font-extrabold bg-clip-text bg-gradient-to-r from-[#F8F9EB] to-[#92938B]">
+              </Label>
+              <Label className="text-3xl font-extrabold text-background">
                 Easy registration and digital ticketing
-              </h3>
+              </Label>
             </div>
           </motion.div>
 
@@ -82,9 +82,9 @@ const AboutSection = () => {
             <div className="flex items-center gap-4">
               <Image alt="campus" src="/images/campus.svg" width={150} height={150} />
               <div className="bg-[#FBE87F]/80 p-4 rounded-lg max-w-[20rem]">
-                <h3 className="font-extrabold text-3xl bg-clip-text bg-gradient-to-r from-[#F8F9EB] to-[#92938B]">
+                <Label className="font-extrabold text-3xl text-background">
                   A Single hub for all university events
-                </h3>
+                </Label>
               </div>
             </div>
           </motion.div>
