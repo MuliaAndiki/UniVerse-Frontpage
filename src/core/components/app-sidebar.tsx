@@ -19,6 +19,8 @@ import {
 } from '@/components/ui/sidebar';
 import Image from 'next/image';
 import { kebabCaseToWords } from '@/utils/string.format';
+import { Button } from '@/components/ui/button';
+import useLogout from '@/hooks/mutation/auth/useLogout';
 
 // Menu items with proper routes
 const items = [
@@ -53,6 +55,7 @@ export function AppSidebar() {
   const pathname = usePathname();
   const { state } = useSidebar();
   const isCollapsed = state === 'collapsed';
+  const logout = useLogout();
 
   return (
     <Sidebar collapsible="icon" className="border-r">
@@ -93,6 +96,7 @@ export function AppSidebar() {
               })}
             </SidebarMenu>
           </SidebarGroupContent>
+          <Button onClick={() => logout.mutate({})}>Keluar</Button>
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>

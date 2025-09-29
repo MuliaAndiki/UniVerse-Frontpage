@@ -9,15 +9,37 @@ import {
   InputOTPSlot,
 } from '@/components/ui/input-otp';
 import Form from '@/components/ui/form';
+import { FormVerifyOtp } from '@/types/form';
+import React from 'react';
+import { Button } from '@/components/ui/button';
 
-const VerifyOtpCard = () => {
+interface VerifyOtpCardProps {
+  setFormVerifyOtp: React.Dispatch<React.SetStateAction<FormVerifyOtp>>;
+  onVerify: () => void;
+  mobile: boolean;
+  isPending: boolean;
+  onResend: () => void;
+  cooldown: number;
+  setCooldown: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const VerifyOtpCard: React.FC<VerifyOtpCardProps> = ({
+  mobile,
+  onVerify,
+  setFormVerifyOtp,
+  isPending,
+  onResend,
+  cooldown,
+}) => {
   return (
     <View>
       <Box className="flex min-h-screen justify-center  items-center relative z-0 overflow-hidden ">
-        <Box className="grid grid-cols-2 grid-rows-1 w-full">
-          <Box className=" flex justify-center items-center ">
-            <ForgotSvg />
-          </Box>
+        <Box className="grid lg:grid-cols-2 grid-rows-1 w-full">
+          {!mobile && (
+            <Box className=" flex justify-center items-center ">
+              <ForgotSvg />
+            </Box>
+          )}
           <Box className=" flex justify-center items-center  ">
             <Box className=" border border-[var(--shape-parent)] rounded-lg flex flex-col p-8 w-full max-w-100">
               <Label className="text-3xl font-bold">Verifikasi </Label>
@@ -28,9 +50,18 @@ const VerifyOtpCard = () => {
                 <Form
                   onSubmit={(e) => {
                     e.preventDefault();
+                    onVerify();
                   }}
                 >
-                  <InputOTP maxLength={6}>
+                  <InputOTP
+                    maxLength={6}
+                    onChange={(e) =>
+                      setFormVerifyOtp((prev) => ({
+                        ...prev,
+                        otp: e,
+                      }))
+                    }
+                  >
                     <InputOTPGroup>
                       <InputOTPSlot index={0} />
                       <InputOTPSlot index={1} />
@@ -43,13 +74,28 @@ const VerifyOtpCard = () => {
                       <InputOTPSlot index={5} />
                     </InputOTPGroup>
                   </InputOTP>
+                  <Box className="flex justify-center items-center mt-4">
+                    <Label>
+                      Belum Menerima Otp?
+                      {cooldown > 0 ? (
+                        <span className="textba">
+                          Kirim lagi ({Math.floor(cooldown / 60)}:
+                          {(cooldown % 60).toString().padStart(2, '0')})
+                        </span>
+                      ) : (
+                        <span
+                          className="text-[var(--shape-parent)] font-semibold "
+                          onClick={onResend}
+                        >
+                          Kirim lagi
+                        </span>
+                      )}
+                    </Label>
+                  </Box>
+                  <Button className="w-full mt-5" type="submit" disabled={isPending}>
+                    {isPending ? 'Wait..' : 'Verify'}
+                  </Button>
                 </Form>
-              </Box>
-              <Box className="flex justify-center items-center mt-4">
-                <Label>
-                  Belum menerima kode?{' '}
-                  <span className="text-[var(--shape-parent)]">Kirim lagi</span>
-                </Label>
               </Box>
             </Box>
           </Box>

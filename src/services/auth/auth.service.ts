@@ -2,7 +2,9 @@ import AxiosClient from '@/utils/axios.client';
 import { TResponse } from '@/pkg/react-query/mutation-wrapper.type';
 import {
   FormEditProfile,
-  FormForgot,
+  FormResetPassword,
+  FormForgotEmail,
+  FormForgotPhone,
   FormLoginType,
   FormRegisterType,
   FormVerifyOtp,
@@ -33,20 +35,25 @@ class AuthApi {
     const res = await AxiosClient.post('/api/auth/verify-otp', payload);
     return res.data;
   }
-  async ForgotPasswordEmail(payload: FormForgot): Promise<TResponse<any>> {
+  async ForgotPasswordEmail(payload: FormForgotEmail): Promise<TResponse<any>> {
     const res = await AxiosClient.post('/api/auth/forgot-email', payload);
     return res.data;
   }
-  async ForgotPasswordPhoneNumber(payload: FormForgot): Promise<TResponse<any>> {
+  async ForgotPasswordPhoneNumber(payload: FormForgotPhone): Promise<TResponse<any>> {
     const res = await AxiosClient.post('/api/auth/forgot-phoneNumber', payload);
     return res.data;
   }
-  async SendOtp(payload: FormForgot): Promise<TResponse<any>> {
+  // Belum Fix
+  async SendOtp(payload: FormForgotEmail): Promise<TResponse<any>> {
     const res = await AxiosClient.post('/api/auth/send-otp', payload);
     return res.data;
   }
   async DeleteAccount(): Promise<TResponse<any>> {
     const res = await AxiosClient.delete('/api/auth/account');
+    return res.data;
+  }
+  async ResetPassword(payload: FormResetPassword): Promise<TResponse<any>> {
+    const res = await AxiosClient.put('/api/auth/reset-password', payload);
     return res.data;
   }
 }

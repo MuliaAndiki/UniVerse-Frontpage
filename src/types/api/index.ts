@@ -6,7 +6,6 @@ export const userType = z.object({
     role: z.string(),
     token: z.string(),
     methotPayment: z.string(),
-    provinsi: z.string(),
     fullName: z.string(),
     email: z.string(),
     phoneNumber: z.string().regex(/^(\+62|0)8[1-9][0-9]{6,9}$/, 'Nomor HP tidak valid'),

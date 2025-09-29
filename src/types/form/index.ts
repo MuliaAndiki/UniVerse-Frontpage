@@ -11,8 +11,8 @@ export interface FormRegisterType {
 }
 
 export interface FormVerifyOtp {
-  email?: string;
-  phoneNumber?: string;
+  email?: string | null;
+  phoneNumber?: string | null;
   otp: string;
 }
 
@@ -23,7 +23,11 @@ export interface FormEditProfile {
   fotoProfile?: string;
 }
 
-export interface FormForgot {
-  email?: string;
-  phoneNumber?: string;
+export interface FormResetPassword {
+  email?: string | null;
+  phoneNumber?: string | null;
+  password?: string;
 }
+
+export type FormForgotEmail = Pick<FormResetPassword, 'email'>;
+export type FormForgotPhone = Pick<FormResetPassword, 'phoneNumber'>;

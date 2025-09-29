@@ -64,6 +64,21 @@ const RegisterCard: React.FC<RegisterProps> = ({
           />
         </Box>
         <Box className="grid gap-3">
+          <Label htmlFor="name">Nama Lengkap</Label>
+          <Input
+            id="name"
+            type="text"
+            placeholder="budi"
+            required
+            onChange={(e) =>
+              setFormRegister((prev) => {
+                const newObj = { ...prev, fullName: e.target.value };
+                return newObj;
+              })
+            }
+          />
+        </Box>
+        <Box className="grid gap-3">
           <Label htmlFor="email">No. Hp</Label>
           <Input
             id="phoneNumber"
@@ -72,7 +87,7 @@ const RegisterCard: React.FC<RegisterProps> = ({
             required
             onChange={(e) =>
               setFormRegister((prev) => {
-                const newObj = { ...prev, number: e.target.value };
+                const newObj = { ...prev, phoneNumber: Number(e.target.value) };
                 return newObj;
               })
             }
