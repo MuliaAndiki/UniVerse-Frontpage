@@ -24,7 +24,6 @@ export interface AlertContexType {
 
 export interface DivProps {
   className?: string;
-  onClick?: () => void;
   children?: React.ReactNode;
   as?: React.ElementType;
   onSubmit?: (e: any) => void;

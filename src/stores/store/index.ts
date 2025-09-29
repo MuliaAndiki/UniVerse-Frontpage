@@ -3,9 +3,11 @@ import { combineReducers } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import authReducer from '../authSlice/authSlice';
+import otpReducer from '../otpSlice/otpSlice';
 
 const rootReduser = combineReducers({
   auth: authReducer,
+  otp: otpReducer,
 });
 
 const persistConfig = {

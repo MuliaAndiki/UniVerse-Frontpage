@@ -14,3 +14,7 @@ export interface OrbitUnivType {
     logo5: string;
   };
 }
+
+export interface AuthProps {
+  mobile: boolean;
+}

@@ -16,7 +16,7 @@ export default function useLogout() {
   const router = useRouter();
   return useMutation<TResponse<any>, Error, any>({
     mutationFn: () => Api.Auth.Logout(),
-    onSuccess: (res) => {
+    onSuccess: () => {
       alert.toast({
         title: 'Succes',
         message: 'Logout Succes',

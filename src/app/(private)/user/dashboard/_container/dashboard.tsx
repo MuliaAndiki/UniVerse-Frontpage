@@ -1,3 +1,4 @@
+'use client';
 import Container from '@/components/ui/container';
 import { SidebarLayout } from '@/core/layouts/sidebar.layout';
 import DashboardUserHeroSection from '@/core/section/private/user/hero-section';
